@@ -1,0 +1,23 @@
+ class Solution {
+ public:
+     int maxProfit(vector<int>& p) {
+         int i=0,j=0,max=0;
+         while(i<p.size()&& j<p.size())
+         {
+             if(i==j || p[i]==p[j])
+             {
+                 j++;
+             }
+             else if(p[i]>p[j])
+             {
+                 i++;
+             }
+             else if(p[i]<p[j])
+             {
+                 if(p[j]-p[i]>max) max = p[j]-p[i];
+                 j++;
+             }
+         }
+         return max;
+     }
+};
